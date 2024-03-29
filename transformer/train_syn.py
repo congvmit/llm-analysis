@@ -72,9 +72,9 @@ def example_simple_model():
         )[0]
 
     model.eval()
-    src = torch.LongTensor([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]])
+    src = torch.LongTensor([[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]).to(device)
     max_len = src.shape[1]
-    src_mask = torch.ones(1, 1, max_len)
+    src_mask = torch.ones(1, 1, max_len).to(device)
     print(greedy_decode(model, src, src_mask, max_len=max_len, start_symbol=0))
 
 
